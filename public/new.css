@@ -1,0 +1,43 @@
+.image img {
+    height: 5rem;
+    width: 9rem;
+}
+
+body {
+    display: grid;
+    justify-content: center;
+    font-size: medium;
+
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+    height: 28rem;
+    width: 20rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    border-radius: 14px;
+    padding: 1rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    height:1.5rem;
+}
+
+.footer a {
+    padding-left: 2rem;
+    text-decoration: none;
+}
+.footer p {
+    padding-left: 2rem;
+}

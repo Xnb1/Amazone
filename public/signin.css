@@ -1,0 +1,69 @@
+.image img {
+    height: 5rem;
+    width: 9rem;
+}
+
+body {
+    display: grid;
+
+    justify-content: center;
+    font-size: medium;
+
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+    height: 15rem;
+    width: 20rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    border-radius: 14px;
+    padding: 1rem;
+}
+
+.cntn {
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 14px;
+    background-color: #f5cc0a;
+}
+
+#name:hover {
+    border: 2px solid lightskyblue;
+    font-size: large;
+}
+
+.new {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.new p {
+    padding-left: 3rem;
+    margin-left: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.new button {
+    height: 2rem;
+    width: 20rem;
+    border: 1px solid whitesmoke;
+    border-radius: 14px;
+    
+}
+
+.footer a {
+    padding-left: 2rem;
+    text-decoration: none;
+}
+.footer p {
+    padding-left: 2rem;
+}

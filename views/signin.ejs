@@ -1,0 +1,26 @@
+<%- include("includes/header.ejs") %>
+<head>
+   <link rel="stylesheet" href="./signin.css">
+</head>
+
+<body>
+    <div class="image">
+    <img src="./myassets/amz.png" alt="image">
+    </div>
+    <div class="text">
+        <h2>Sign in</h2>
+        <label for="name">Email or Phone number</label>
+        <input style ="height:25px" id="name"><br>
+        <button class="cntn">Continue</button>
+        <p>By Signing in, you agree to Amazon's <a href="/">Conditions of use</a> and <a href="/">Privacy Notice</a></p>
+    </div>
+    <div class="new">
+        <p>New to Amazon?</p>
+        <form action="http://127.0.0.1:8080/new">
+        <button>Create New Account</button>
+        </form>
+    </div><br><br>
+    
+    <%- include("includes/footer.ejs") %>
+</body>
+</html>
