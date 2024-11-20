@@ -28,7 +28,7 @@ allBtn.addEventListener("click", function() {
 let btn2 = document.getElementById("sinin");
 
 btn2.addEventListener("click", ()=> {
-   let url = "http://127.0.0.1:8080/signin";
+   let url = "http://localhost:8080/signin";
    console.log("button was clicked");
    Signin(url);
 });
@@ -36,7 +36,7 @@ btn2.addEventListener("click", ()=> {
 let btn3 = document.getElementsByClassName("login")[0];
 
 btn3.addEventListener("click", () => {
-   url = "http://127.0.0.1:8080/signin";
+   url = "http://localhost:8080/signin";
    console.log("button was clicked");
    Signin(url);
 });
