@@ -168,6 +168,12 @@ body {
   font-size: medium;
 }
 
+@media(max-width:1255px) {
+  .navbar-inner {
+    display: none;
+  }
+}
+
 .home i {
    padding-right: 2px;
    margin-right: 2px;
