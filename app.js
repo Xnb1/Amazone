@@ -1,7 +1,20 @@
 const express = require("express");
 const app = express();
 // const cors = require('cors');
+const mongoose = require('mongoose');
 const port = 8080;
+
+MONGO_URL = 'mongodb://127.0.0.1:27017/amazone';
+
+main().then(()=> {
+    console.log("connected to DB")
+}).catch((err) => {
+    console.log(err)
+});
+
+async function main() {
+    await mongoose.connect(MONGO_URL);
+}
 
 const path = require("path");
 app.set("view engine", "ejs");
@@ -23,6 +36,10 @@ app.get("/signin", (req,res) => {
 
 app.get("/new", (req,res) => {
     res.render("new.ejs");
+})
+
+app.get("/view", (req,res) => {
+    res.render("view.ejs");
 })
 
 // app.options("127.0.0.1", (req, res) => {

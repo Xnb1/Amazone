@@ -335,7 +335,7 @@ body {
 #btn-close {
   position: absolute;
   left: 22.9rem;
-  top: 1rem;                             /* 15px; */
+  top: 1rem;                         
   height: 2rem;
   font-size: 1.5rem;
   border: 2px solid black;
@@ -418,5 +418,24 @@ body {
   width: 9rem;
   margin-left: 1rem;
   cursor: pointer;
+  
+}
+
+.footer {
+  background-color: #001b2a;
+  text-align: center;
+  
+  color: white;
+ padding: 1rem 0 1rem 0;
+}
+.footer a {
+  padding-left: 2rem;
+  text-decoration: none;
+  color: white;
+ 
+  
+}
+.footer p {
+  padding-left: 2rem;
   
 }
