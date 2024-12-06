@@ -51,3 +51,25 @@ async function Signin(url) {
        console.log(err);
     }
 }
+
+let divs = document.querySelectorAll("#sub_container");
+
+divs.forEach(div => {
+  div.addEventListener("click", () => {
+    url = "http://localhost:8080/view";
+    console.log("button was clicked");
+    ViewPage(url);
+})
+});
+
+async function ViewPage(url) {
+   try {
+      let res = await axios.get(url);
+      if (res) {
+         window.location.href = url; 
+        }
+      } catch (err){
+         console.log(err);
+
+   }
+}
