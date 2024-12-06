@@ -1,0 +1,19 @@
+img {
+    height: 15rem;
+    width: 15rem;
+}
+
+h1 {
+    height: 5rem;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product-item {
+    width: 20rem;
+    height: 30rem;
+}

@@ -1,2 +1,19 @@
 <%- include("includes/header1.ejs") %>
+<link rel="stylesheet" href="./view.css">
+
+<div class="Product-list">
+  <h1>Product List</h1>
+  
+  <div class="products">
+    <% Prodct.forEach(products => {  %>
+      <div class="product-item">
+       <h2><%= products.title %> </h2>
+       <img src= "<%= products.image %>" >
+       <h4>Price: <%= products.price %> AED </h4>
+       <p>Rating: <%= products.rating %> </p>
+       <button>Add to Cart</button>
+      </div>
+    <%} )%>
+  </div>
+</div> 
 
