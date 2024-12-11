@@ -26,3 +26,97 @@ h1 {
     width: 20rem;
     height: 30rem;
 }
+
+#slidebar {
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-size: medium;
+    position: fixed;
+    color: black;
+    height: 100vh;
+    width: 50vh;
+    left: -830px;
+    background-color: whitesmoke;
+    box-shadow: 0 0 8px rgba(255,255,255,0.5);
+    /* overflow-y: scroll; */
+  }
+  
+  #slidebar a {
+    text-decoration: none;
+    color: black;
+    margin-left: 2rem;
+  }
+  
+  #slidebar h3 {
+    margin: 0;
+    padding-right: 3rem;
+    height: 3rem;
+    background-color: #001b2a;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+  }
+  
+  #slidebar h4 {
+    margin-left: 2rem;
+  }
+  
+  #btn-close {
+    position: absolute;
+    left: 22.9rem;
+    top: 1rem;                         
+    height: 2rem;
+    font-size: 1.5rem;
+    border: 2px solid black;
+  }
+
+  .navbar-inner {
+    color: white;
+    height: 30px;
+    background-color: #001b2a;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 0.3rem;
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-size: medium;
+    @media (min-width:340px) and (max-width:385px) {
+      width: 200%;
+    }
+    @media (min-width: 389px) and (max-width:435px) {
+      width:270%;
+    }
+    @media (min-width: 437px) and (max-width:1000px) {
+      width: 160%;
+    }
+    @media(min-width: 1005px) and (max-width:1285px) {
+      width: 115%;
+    }
+     @media (max-width:1285px) {
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    @media (width:540px) {
+      width:200%;
+    }
+  }
+  .navbar-inner::-webkit-scrollbar {
+    @media screen {
+      display: none;
+      
+    } 
+  }
+  
+  .navbar-inner div {
+    @media (max-width: 1285px) {
+      flex:0 0 auto;
+      text-align: center;
+      min-width: 100px;
+  }
+  }
