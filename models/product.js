@@ -22,12 +22,15 @@ const productSchema = new mongoose.Schema ({
         min: 0,
         max: 5,
         default: 0
+     },
+     quantity: {
+      type: Number
      }
 });
 
 const Product = mongoose.model("Product", productSchema);
 
-// const Product1 = new Product({title: "Stainless Steel Water Bottle", image: "/myassets/bottle.png", price: 60, rating: 4});
+// const Product1 = new Product({title: "Stainless Steel Water Bottle", image: "/myassets/bottle.png", price: 60, rating: 4, quantity: 10});
 
 // Product1.save();
 
