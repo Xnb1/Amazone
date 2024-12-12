@@ -1,26 +1,32 @@
 <%- include("includes/header.ejs") %>
 <head>
-   <link rel="stylesheet" href="./signin.css">
+   <link rel="stylesheet" href="/css/signin.css">
 </head>
 
 <body>
     <div class="image">
     <img src="./myassets/amz.png" alt="image">
     </div>
+    <form action="/" method="post" class="needs-validation" novalidate>
     <div class="text">
         <h2>Sign in</h2>
         <label for="name">Email or Phone number</label>
         <input style ="height:25px" id="name"><br>
-        <button class="cntn">Continue</button>
+        <label for="password">Password</label>
+        <input id="password" style="height:25px"><br>
+        <button class="cntn">Continue</button><br>
         <p>By Signing in, you agree to Amazon's <a href="/">Conditions of use</a> and <a href="/">Privacy Notice</a></p>
     </div>
+    </form><br>
     <div class="new">
         <p>New to Amazon?</p>
-        <form action="http://127.0.0.1:8080/new">
+        <form action="http://localhost:8080/new">
         <button>Create New Account</button>
         </form>
     </div><br><br>
     
     <%- include("includes/footer.ejs") %>
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -31,13 +31,17 @@ label {
 }
 
 input {
-    height:1.5rem;
+    height: 2rem;
 }
 
 .footer a {
-    padding-left: 2rem;
     text-decoration: none;
 }
-.footer p {
-    padding-left: 2rem;
+
+button {
+    background-color: #f5cc0a;
+    border: 1px solid white;
+    border-radius: 14px;
+    width: 10rem;
+
 }

@@ -17,7 +17,7 @@ body {
 }
 
 .text {
-    height: 15rem;
+    height: 22rem;
     width: 20rem;
     display: grid;
     justify-content: center;
@@ -61,10 +61,7 @@ body {
 }
 
 .footer a {
-    padding-left: 2rem;
+    
     text-decoration: none;
     
-}
-.footer p {
-    padding-left: 2rem;
 }

@@ -48,9 +48,12 @@ app.get("/view", async (req,res) => {
         res.render("view.ejs", { Prodct });
     } catch (err) {
         console.log(err, "Error fetching the products");
-        res.status("Oops! Error fetching the Products");
     }
-})
+});
+
+
+
+
 
 // app.options("127.0.0.1", (req, res) => {
 //     res.header("Access-Control-Allow-Origin", "127.0.0.1")
