@@ -7,21 +7,21 @@
     <img src="./myassets/amz.png" alt="image">
     </div>
     <div class="text">
-        <form class="needs-validation" novalidate>
+        <form action="/new" method="post" class="needs-validation" novalidate>
         <h2>Create Account</h2>
         <div><br>
         <label for="name" class="form-label">Your name</label>
-        <input id="name" placeholder="Enter your name" class="form-control" required><br>
+        <input id="name" name="name" placeholder="Enter your name" class="form-control" required><br>
         </div>
         <div>
             <label for="email" class="form-label">Email</label>
-            <input id="email" type="email" placeholder="Enter your email" class="form-control" required>
+            <input id="email" name="email" type="email" placeholder="Enter your email" class="form-control" required>
             
         </div><br>
         
         <div>
             <label for="password" class="form-label">Password</label><br>
-            <input id="password" type="password" placeholder="Atleast 6 characters" class="form-control" minlength="7"  required>
+            <input id="password" type="password" name="password" placeholder="Atleast 6 characters" class="form-control" minlength="7" maxlength="16" required>
             <div class="invalid-feedback">
                 Password should be atleast 6 characters.
             </div>

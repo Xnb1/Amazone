@@ -17,6 +17,10 @@ h1 {
     height: 5rem;
 }
 
+h3{ 
+  padding-left: 2rem;
+}
+
 .products {
     display: flex;
     flex-wrap: wrap;
