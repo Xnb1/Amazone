@@ -4,8 +4,12 @@
 
 <div class="Product-list">
   <h1>Product List</h1>
+  <div>
+    <% if (user) { %>
+    <h3>Welcome <%= user.name %>! </h3>
+    <% } %>
+  </div>
   
-  <h3>Welcome <%= user.name %>! </h3>
   <div class="products">
     <% Prodct.forEach(products => {  %>
       <div class="product-item">

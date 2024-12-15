@@ -10,7 +10,7 @@ const productSchema = new mongoose.Schema ({
     image: {
       type: String,
       required: true,
-      default: "/myassets/404.png",
+      // default: "/myassets/404.png",
     },
      price: {
         type: Number,

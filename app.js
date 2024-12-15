@@ -3,6 +3,11 @@ const app = express();
 // const cors = require('cors');
 const mongoose = require('mongoose');
 const session = require("express-session");
+const router = express.Router();
+const path = require("path");
+const Product = require("./models/product.js");
+const User = require("./models/user.js");
+const isLoggedIn = require("./middleware.js");
 const port = 8080;
 
 // const initData = require("./init.js");
@@ -18,11 +23,6 @@ async function main() {
     await mongoose.connect(MONGO_URL);
 }
 
-const path = require("path");
-
-const Product = require("./models/product.js");
-const User = require("./models/user.js");
-
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -34,6 +34,11 @@ app.use(session({
     secret: 'keyboard',
     resave: false,
     saveUninitialized: true,
+    cookie : {
+        expires: Date.now() + 1* 1* 60* 60* 1000,
+        maxAge: 1* 1* 60* 60* 1000,
+        httpOnly: true
+    }
 }));
 // app.use(cors());
 
@@ -50,13 +55,10 @@ app.get("/new", (req,res) => {
     res.render("new.ejs");
 })
 
-app.get("/view", async (req,res) => {
-    try {
-        if (!req.session.user) {
-            return res.redirect('/view');
-        } 
+app.get("/view", isLoggedIn, async (req,res) => {
+    try { 
         const Prodct = await Product.find();
-        res.render("view.ejs", { Prodct, user: req.session.user });
+        res.render("view.ejs", { Prodct, user: req.user });
         
     } catch (err) {
         console.log(err, "Error fetching the products");
@@ -82,22 +84,10 @@ app.post("/signin", async (req, res) => {
        let { email, password } = req.body;
        const user = await User.findOne({email, password});
        if (!user) {
-        return res.status(401).send("Invalid email or password. Please try again");
+        return res.send("Invalid email or password. Please try again");
        }
-
        req.session.user = user;
-       
-        
-    // const Prodct = await Product.find();
-    //    const allUsers = await User.find({});
-    //    for (let user of allUsers) {
-    //       if (email !== user.email && password !== user.password) {
-    //         res.send("Please signin again");
-    //       } else {
-    //     res.render("view.ejs",{ Prodct, allUsers });
        res.redirect("/view");     
-    //       }
-    //     }
     } catch (err) {
         console.log(err)
     }
