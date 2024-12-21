@@ -3,8 +3,9 @@ const app = express();
 // const cors = require('cors');
 const mongoose = require('mongoose');
 const session = require("express-session");
-const router = express.Router();
+// const router = express.Router();
 const path = require("path");
+const cookieParser = require("cookie-parser");
 const Product = require("./models/product.js");
 const User = require("./models/user.js");
 const isLoggedIn = require("./middleware.js");
@@ -26,7 +27,7 @@ async function main() {
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-
+app.use(cookieParser("secretcode"));
 app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -42,7 +43,13 @@ app.use(session({
 }));
 // app.use(cors());
 
+app.get("/verify", (req,res) => {
+    res.cookie ("color" , "red", {signed: true});
+    res.send("you sent some cookies");
+})
+
 app.get("/", (req,res) => {
+    console.log(req.signedCookies);
     res.render("index.ejs");
 })
 
