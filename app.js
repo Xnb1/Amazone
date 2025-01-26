@@ -8,6 +8,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const Product = require("./models/product.js");
 const User = require("./models/user.js");
+const Cart = require("./models/cart.js");
 const isLoggedIn = require("./middleware.js");
 const port = 8080;
 
@@ -100,6 +101,40 @@ app.post("/signin", async (req, res) => {
     }
 });
 
+//add product to cart, (if yes update quantity, if not add the item)
+app.post("/add-to-cart", async(req, res) => {
+    let {userId, productId, quantity} = req.body;
+
+    try {
+        let cart = await Cart.findOne({ userId });
+        if (!cart) {
+            cart = new Cart ({userId, items:[]});
+        }
+
+        //check if item exists in the cart
+        const existingItem = cart.items.find((item) => item.productId.toString() === ProductId);
+        if (existingItem) {
+            existingItem.quantity += quantity;      //update quantity
+        } else {
+            cart.items.push({productId, quantity})  //add new product
+        }
+
+        await cart.save();
+        res.redirect("/view");
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+//Get cart items
+app.get("/:userId", async(req,res) => {
+    try {
+      const cart = await Cart.findOne({userId: req.params.userId}).populate(items.productId);
+      res.status(200).json(cart);
+    } catch(err) {
+        console.log(err);
+    }
+})
 
 
 
