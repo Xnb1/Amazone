@@ -1,4 +1,5 @@
 <%- include("includes/header1.ejs") %>
+
 <link rel="stylesheet" href="/css/view.css">
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
@@ -13,12 +14,18 @@
   <div class="products">
     <% Prodct.forEach(products => {  %>
       <div class="product-item">
-       <h2><%= products.title %> </h2>
-       <img src= "<%= products.image %>" >
-       <h4>Price: <%= products.price %> AED </h4>
-       <p>Rating: <%= products.rating %> </p>
-       <p>Quantity: <%= products.quantity%></p>
-       <button>Add to Cart</button>
+        
+          <h2><%= products.title %> </h2>
+          <img src= "<%= products.image %>" >
+          <h4>Price: <%= products.price %> AED </h4>
+          <p>Rating: <%= products.rating %> </p>
+          <!-- <p>Quantity: < products.quantity%>  </p> -->
+          <form action="/add-to-cart" method="POST">
+            <input type="hidden" name="product" value="<%= products._id %>">
+            <input type="hidden" name="quantity" value="1"> 
+            <input type="hidden" name="user" value="<%= user._id %>">
+            <button class="cart" type="submit">Add to Cart</button>
+          </form>
       </div>
     <%} )%>
   </div>

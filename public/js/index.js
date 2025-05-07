@@ -97,10 +97,12 @@ async function ViewPage(url) {
    }
 }
 
-// Add to cart
-let cart = document.querySelectorAll(".cart");
-cart.forEach(addCart => {
-  addCart.addEventListener("click", () => {
-   console.log("cart clicked");
-})
-});
+// // // Add to cart
+// let cart = document.querySelectorAll(".cart");
+// cart.forEach(addCart => {
+//   addCart.addEventListener("click", (e) => {
+//    e.preventDefault();
+//    console.log("cart clicked");
+  
+// })
+// });
