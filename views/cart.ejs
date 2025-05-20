@@ -1,5 +1,7 @@
 <%- include("includes/header1.ejs") %>
 
+<link rel="stylesheet" href="/css/cart.css">
+
 <h1>Your Shopping Cart</h1>
 <hr>
 
@@ -9,7 +11,12 @@
       <li>
         <h2><%= item.product.title %></h2>
         <p>Price: $<%= item.product.price %></p>
-        <p>Quantity: <%= item.quantity %></p>
+        <h7 class="quantity">
+          Quantity:
+            <button class="decrement" data-product-id="<%= item.product._id %>"><b>-</b></button>
+            <span><%= item.quantity %></span>
+            <button class="increment" data-product-id="<%= item.product._id %>"><b>+</b></button>   
+        </h7>
         <p>Total: $<%= item.product.price * item.quantity %></p>
       </li>
     <% }) %>
@@ -18,3 +25,9 @@
 <% } else { %>
   <p>Your cart is empty!</p>
 <% } %>
+
+  <script src="/js/index.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

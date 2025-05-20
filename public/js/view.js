@@ -66,9 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Add to cart
-let cart = document.querySelectorAll(".cart");
-cart.forEach(addCart => {
-  addCart.addEventListener("click", () => {
-   console.log("cart clicked");
-})
-});
+// let cart = document.querySelectorAll(".cart");
+// cart.forEach(addCart => {
+//   addCart.addEventListener("click", () => {
+//    console.log("cart clicked");
+// })
+// });

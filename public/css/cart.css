@@ -1,0 +1,19 @@
+li button {
+    width: 1rem;
+    /* border-radius: 5rem; */
+     border: 0.5px solid white;
+     height: 1rem;
+     background-color: white;
+   
+   
+}
+
+.quantity {
+    background-color: white;
+    font-weight: 500;
+    width: 10rem;
+    border-radius: 5rem;
+    border: 2px solid#f5cc0a;
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -59,6 +59,7 @@ app.get("/", (req,res) => {
     res.render("index.ejs");
 });
 
+
 // app.post("/add-to-cart", async (req, res) => {
 //     res.send("post req working")
 // });
@@ -66,6 +67,12 @@ app.get("/", (req,res) => {
 app.use("/", userRouter);
 app.use("/", productRouter);
 app.use("/", cartRouter);
+
+app.use(isLoggedIn);
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    next();
+});
 
 
 // app.options("127.0.0.1", (req, res) => {

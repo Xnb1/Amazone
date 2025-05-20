@@ -125,3 +125,12 @@ h3{
       min-width: 100px;
   }
   }
+
+  form button{
+    margin: 2rem 1rem 0 1rem;
+    width: 12rem;
+    height: 2rem;
+    background-color: #f5cc0a;
+    border: none;
+    border-radius: 10px;
+  }

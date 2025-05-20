@@ -1,4 +1,3 @@
-
 let slideBar = document.getElementById("slidebar");
 let btn = document.getElementById("btn-close");
 let allBtn = document.getElementById("home"); 
@@ -46,12 +45,20 @@ document.addEventListener("DOMContentLoaded", () => {
       
    
 // Sign In/Login Button
-let btn2 = document.getElementById("sinin");
-
-btn2.addEventListener("click", ()=> {
-   let url = "http://localhost:8080/signin";
-   // console.log("button was clicked");
-   Signin(url);
+document.addEventListener("DOMContentLoaded", ()=> {
+  let btn2 = document.getElementById("sinin");
+  if (btn2) {
+    btn2.addEventListener("click", async ()=> {
+       console.log("button was clicked");
+       try {
+          let url = "http://localhost:8080/signin";
+   
+           await Signin(url);
+         }   catch (err) {
+               console.log(err);
+         }
+      });
+   }
 });
 
 let btn3 = document.getElementsByClassName("login")[0];
@@ -73,6 +80,18 @@ async function Signin(url) {
        console.log(err);
     }
 }
+
+
+// cart button
+let cart = document.getElementsByClassName("cart")[0];  //as it is html collection returns array
+cart.addEventListener("click", () => {
+   
+   if (window.isLoggedIn) {
+      window.location.href = "/cart";
+   } else {
+      alert ("You are not logged in. Please login first");
+   }
+});
 
 //display product page
 let divs = document.querySelectorAll("#sub_container");
@@ -97,12 +116,57 @@ async function ViewPage(url) {
    }
 }
 
-// // // Add to cart
-// let cart = document.querySelectorAll(".cart");
-// cart.forEach(addCart => {
-//   addCart.addEventListener("click", (e) => {
-//    e.preventDefault();
-//    console.log("cart clicked");
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const updateQuantity = async (productId, action) => {
+    try {
+      let url = "http://localhost:8080/cart/update";
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ productId, action })
+      });
+      if (!res.ok) throw new Error("Update failed");
+
+      const data = await res.json();
+      console.log("Cart updated", data);
+      location.reload(); // reload page to show updated quantity
+    } catch (err) {
+      console.error("Cart update error:", err);
+    }
+  };
+
+ 
+
+  let decrementBtn = document.querySelectorAll(".decrement");
+   if (decrementBtn) {
+     decrementBtn.forEach(dec => {
+       dec.addEventListener("click", () => {
+         const productId = dec.dataset.productId;
+         updateQuantity (productId, "decrease");
+       });  
+     });
+    }
   
-// })
-// });
+  let incrementBtn = document.querySelectorAll(".increment");
+  if (incrementBtn) {
+     incrementBtn.forEach(inc => {
+       inc.addEventListener("click", () => {
+         const productId = inc.dataset.productId;
+         updateQuantity (productId, "increase");
+         
+         });  
+     });
+    }
+});
+
+// home page
+// 1. click --> product page 
+// if user logged in --> product page welcome user
+
+// 2. add to cart button click --> added to cart
+// if user logged in --> with user id, added to cart
+
