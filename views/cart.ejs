@@ -5,26 +5,27 @@
 <h1>Your Shopping Cart</h1>
 <hr>
 
-<% if (cart && cart.items.length > 0) { %>
-  <ul>                                           
-    <% cart.items.forEach(item => { %>
+<% if (!cart || !cart.items || cart.items.length === 0) { %>
+  <p> OOPS!!! Your cart is empty </p>
+  <% } else { %>
+    
+    
+    <ul>
+      <% cart.items.forEach( ({product, quantity}) => { %>
       <li>
-        <h2><%= item.product.title %></h2>
-        <p>Price: $<%= item.product.price %></p>
-        <h7 class="quantity">
-          Quantity:
-            <button class="decrement" data-product-id="<%= item.product._id %>"><b>-</b></button>
-            <span><%= item.quantity %></span>
-            <button class="increment" data-product-id="<%= item.product._id %>"><b>+</b></button>   
-        </h7>
-        <p>Total: $<%= item.product.price * item.quantity %></p>
+        <h2><%= product.title %></h2> 
+        <form class="quantity" method="POST" action="/cart/update">
+          <input type="hidden" name="productId" value="<%= product._id %>">
+          Quantity: <button name="action" value="decrease">-</button>
+          <%= quantity %>
+          <button name="action" value="increase">+</button>
+        </form>
       </li>
-    <% }) %>
+      <br><br>
+    <% }); %>
   </ul>
-  <p><strong>Grand Total: $<%= cart.items.reduce((total, item) => total + item.product.price * item.quantity, 0) %></strong></p>
-<% } else { %>
-  <p>Your cart is empty!</p>
 <% } %>
+       
 
   <script src="/js/index.js"></script> 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

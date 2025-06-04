@@ -17,3 +17,11 @@ li button {
     display: flex;
     justify-content: space-evenly;
 }
+
+h1 {
+    padding-top: 1rem;
+}
+
+p {
+    padding-left: 1rem;
+}
