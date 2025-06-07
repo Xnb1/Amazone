@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
          hom.addEventListener("click", async () => {
             // console.log("div clicked");
             try {
-               const url = "http://amznb.onrender.com/";
+               const url = "https://amznb.onrender.com/";
                const res = await axios.get(url);
                if (res) 
                window.location.href = url; 
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
     btn2.addEventListener("click", async ()=> {
       //  console.log("button was clicked");
        try {
-          let url = "http://amznb.onrender.com/signin";
+          let url = "https://amznb.onrender.com/signin";
    
            await Signin(url);
          }   catch (err) {
@@ -65,7 +65,7 @@ let btn3 = document.getElementsByClassName("login")[0];
 
 btn3.addEventListener("click", () => {
    console.log(btn3);
-   url = "http://amznb.onrender.com/signin";
+   url = "https://amznb.onrender.com/signin";
   
    Signin(url);
 });
@@ -98,7 +98,7 @@ let divs = document.querySelectorAll("#sub_container");
 
 divs.forEach(div => {               // querySelectorAll returns a nodeList (which is similar to array) so i loop through each element using forEach
   div.addEventListener("click", () => {
-    url = "http://amznb.onrender.com/view";
+    url = "https://amznb.onrender.com/view";
    //  console.log("button was clicked");
     ViewPage(url);
 })
@@ -121,7 +121,7 @@ async function ViewPage(url) {
 document.addEventListener("DOMContentLoaded", () => {
   const updateQuantity = async (productId, action) => {
     try {
-      let url = "http://amznb.onrender.com/cart/update";
+      let url = "https://amznb.onrender.com/cart/update";
       const res = await fetch(url, {
         method: "POST",
         headers: {

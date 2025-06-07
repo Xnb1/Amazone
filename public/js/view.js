@@ -28,7 +28,7 @@ let btn3 = document.getElementsByClassName("login")[0]; //0th element of nodelis
 
 btn3.addEventListener("click", () => {
    console.log(btn3);
-   url = "http://localhost:8080/signin";
+   url = "https://amznb.onrender.com/signin";
    // console.log("button was clicked");
    Signin(url);
 });
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
          hom.addEventListener("click", async () => {
             console.log("div clicked");
             try {
-               const url = "http://localhost:8080/";
+               const url = "https://amznb.onrender.com/";
                const res = await axios.get(url);
                if (res) 
                window.location.href = url; 
