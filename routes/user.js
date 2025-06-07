@@ -29,7 +29,7 @@ router.post("/new", async (req,res) => {
 router.post("/signin", async (req, res) => {
     try {
         
-       let { email, password } = req.body;
+       let { email, password } = req.body;                          
        
        const user = await User.findOne({email, password});
        if (!user) {

@@ -10,7 +10,7 @@ const user = require("./user.js");
 router.get("/cart", async (req, res) => {
   try {
     if (req.session.user) {                        //if user is login, fetching from db
-      const userId = req.session.user?._id;
+      const userId = req.session.user?._id;        //if req.session.user is true, then ._id otherwise umdefined(shows no error)
       let cart = await Cart.findOne({ user: userId }).populate("items.product");
       if (!cart) {
            cart = { items: [] };
@@ -50,8 +50,8 @@ router.get("/cart", async (req, res) => {
 //add product to cart, check item exists(if yes update quantity, if not add the item)
 router.post("/cart", async (req, res) => {
     let { product, quantity} = req.body;
-    quantity = parseInt(quantity);
-    
+    quantity = parseInt(quantity);                                     //req.session.cart = js array of objects [{}, {}] while for login user
+    //  when items added to cart, that is mongoose doc in which populate can be used
     try {
       //if user is logged in
         if (req.session.user) {
