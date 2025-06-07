@@ -28,9 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
    if (home) {
       home.forEach(hom => { 
          hom.addEventListener("click", async () => {
-            console.log("div clicked");
+            // console.log("div clicked");
             try {
-               const url = "http://localhost:8080/";
+               const url = "http://amznb.onrender.com/";
                const res = await axios.get(url);
                if (res) 
                window.location.href = url; 
@@ -49,9 +49,9 @@ document.addEventListener("DOMContentLoaded", ()=> {
   let btn2 = document.getElementById("sinin");
   if (btn2) {
     btn2.addEventListener("click", async ()=> {
-       console.log("button was clicked");
+      //  console.log("button was clicked");
        try {
-          let url = "http://localhost:8080/signin";
+          let url = "http://amznb.onrender.com/signin";
    
            await Signin(url);
          }   catch (err) {
@@ -65,8 +65,8 @@ let btn3 = document.getElementsByClassName("login")[0];
 
 btn3.addEventListener("click", () => {
    console.log(btn3);
-   url = "http://localhost:8080/signin";
-   console.log("button was clicked");
+   url = "http://amznb.onrender.com/signin";
+  
    Signin(url);
 });
    
@@ -98,8 +98,8 @@ let divs = document.querySelectorAll("#sub_container");
 
 divs.forEach(div => {               // querySelectorAll returns a nodeList (which is similar to array) so i loop through each element using forEach
   div.addEventListener("click", () => {
-    url = "http://localhost:8080/view";
-    console.log("button was clicked");
+    url = "http://amznb.onrender.com/view";
+   //  console.log("button was clicked");
     ViewPage(url);
 })
 });
@@ -121,7 +121,7 @@ async function ViewPage(url) {
 document.addEventListener("DOMContentLoaded", () => {
   const updateQuantity = async (productId, action) => {
     try {
-      let url = "http://localhost:8080/cart/update";
+      let url = "http://amznb.onrender.com/cart/update";
       const res = await fetch(url, {
         method: "POST",
         headers: {
@@ -163,10 +163,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// home page
-// 1. click --> product page 
-// if user logged in --> product page welcome user
 
-// 2. add to cart button click --> added to cart
-// if user logged in --> with user id, added to cart
 

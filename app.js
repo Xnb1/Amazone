@@ -49,10 +49,10 @@ app.use(express.json());
 // }));
 // app.use(cors());
 
-app.get("/verify", (req,res) => {
-    res.cookie ("color" , "red", {signed: true});
-    res.send("you sent some cookies");
-})
+// app.get("/verify", (req,res) => {
+//     res.cookie ("color" , "red", {signed: true});
+//     res.send("you sent some cookies");
+// })
 
 app.get("/", (req,res) => {
     console.log(req.signedCookies);
