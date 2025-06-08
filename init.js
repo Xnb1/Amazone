@@ -1,7 +1,7 @@
 require("dotenv").config();
-const dbUrl = process.env.ATLASDB_URL;
-const mongoose = require("mongoose");
 
+const mongoose = require("mongoose");
+const dbUrl = process.env.ATLASDB_URL;
 const Product = require("./models/product.js");
 
 const products = [
@@ -75,28 +75,26 @@ const products = [
           "rating": 4.4,
           "quantity": 10
         }
-      ];
-// console.log("DB URL:", process.env.ATLASDB_URL);
-// mongoose.connect(dbUrl);
-// Connect and insert
-mongoose
-  .connect(dbUrl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(async () => {
-    console.log("✅ Connected to MongoDB Atlas");
+      ];     
 
-    const count = await Product.countDocuments();
+// Connect and insert
+async function insertProducts() {
+  try {
+   await mongoose.connect(dbUrl);
+   console.log("connected to mongoDb ATLAS");
+   
+   const count = await Product.countDocuments();
     if (count === 0) {
       await Product.insertMany(products);
-      console.log("✅ Products inserted successfully!");
+      console.log("Products inserted successfully!");
     } else {
-      console.log("⚠️ Products already exist. Skipping insert.");
+      console.log("Products already exist. Skipping insert.");
     }
 
-    mongoose.connection.close();
-  })
-  .catch((err) => {
+    await mongoose.disconnect();
+  } catch (err)  {
     console.error("❌ Error inserting products:", err);
-  });
+  };
+}
+
+insertProducts();
