@@ -61,22 +61,23 @@ const sessionOptions = {
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-app.use(session(sessionOptions));
+// app.use(session(sessionOptions));
 app.use(cookieParser("secretcode"));
 app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-// app.use(session({
-//     secret: 'keyboard',
-//     resave: false,
-//     saveUninitialized: true,
-//     cookie : {
-//         expires: Date.now() + 1* 1* 60* 60* 1000,
-//         maxAge: 1* 1* 60* 60* 1000,
-//         httpOnly: true
-//     }
-// }));
+app.use(session({
+    sessionOptions,
+    secret: 'keyboard',
+    resave: false,
+    saveUninitialized: true,
+    cookie : {
+        expires: Date.now() + 1* 1* 60* 60* 1000,
+        maxAge: 1* 1* 60* 60* 1000,
+        httpOnly: true
+    }
+}));
 // app.use(cors());
 
 // app.get("/verify", (req,res) => {
