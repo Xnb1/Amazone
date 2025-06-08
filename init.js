@@ -1,9 +1,10 @@
+require("dotenv").config();
+const dbUrl = process.env.ATLASDB_URL;
 const mongoose = require("mongoose");
 
 const Product = require("./models/product.js");
 
-Product.insertMany(
-    [
+const products = [
         {
           "title": "Wireless Earbuds",
           "image": "/myassets/earbuds.jpg",
@@ -74,7 +75,28 @@ Product.insertMany(
           "rating": 4.4,
           "quantity": 10
         }
-      ]
-      
+      ];
+// console.log("DB URL:", process.env.ATLASDB_URL);
+// mongoose.connect(dbUrl);
+// Connect and insert
+mongoose
+  .connect(dbUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(async () => {
+    console.log("✅ Connected to MongoDB Atlas");
 
-);
+    const count = await Product.countDocuments();
+    if (count === 0) {
+      await Product.insertMany(products);
+      console.log("✅ Products inserted successfully!");
+    } else {
+      console.log("⚠️ Products already exist. Skipping insert.");
+    }
+
+    mongoose.connection.close();
+  })
+  .catch((err) => {
+    console.error("❌ Error inserting products:", err);
+  });
