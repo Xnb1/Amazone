@@ -16,7 +16,7 @@ const dbUrl = process.env.ATLASDB_URL;
    // 1.connecting to mongodb
 main().then(() => {
     console.log("connected to database");
-    
+    console.log("Mongoose is connected to:", mongoose.connection.db.databaseName);
     //2.requiring routes
     const userRouter = require("./routes/user.js");
     const cartRouter = require("./routes/cart.js");
