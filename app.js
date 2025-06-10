@@ -11,11 +11,9 @@ const MongoStore = require('connect-mongo');
 
 const path = require("path");
 const cookieParser = require("cookie-parser");
-const Product = require("./models/product.js");
-const User = require("./models/user.js");
-const Cart = require("./models/cart.js");
+
 const isLoggedIn = require("./middleware.js");
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 10000;
 const userRouter = require("./routes/user.js");
 const cartRouter = require("./routes/cart.js");
 const productRouter = require("./routes/product.js");
