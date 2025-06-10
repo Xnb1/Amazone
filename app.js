@@ -45,7 +45,7 @@ main().then(() => {
     app.use(
      session({
       store,
-      secret: process.env.SECRET || "keyboard",
+      secret: process.env.SECRET,
       resave: false,
       saveUninitialized: true,
       cookie: {
