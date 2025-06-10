@@ -6,9 +6,10 @@ const Product = require("../models/product.js");
 router.get("/view",isLoggedIn, async (req,res) => {
     try { 
         const Prodct = await Product.find();
+        console.log("fetching products", Prodct);
         const user = req.user;
         if (isLoggedIn) {
-        res.render("view.ejs", { Prodct, user });
+           res.render("view.ejs", { Prodct, user });
         } else {
             res.render("view.ejs", { Prodct })
         }
