@@ -14,9 +14,6 @@ const cookieParser = require("cookie-parser");
 
 const isLoggedIn = require("./middleware.js");
 const port = process.env.PORT || 10000;
-const userRouter = require("./routes/user.js");
-const cartRouter = require("./routes/cart.js");
-const productRouter = require("./routes/product.js");
 
 
 // const initData = require("./init.js");
@@ -42,6 +39,10 @@ const store = MongoStore.create({
 store.on("error", () => {
     console.log("ERROR IN MONGO SESSION STORE", err);
 });
+
+const userRouter = require("./routes/user.js");
+const cartRouter = require("./routes/cart.js");
+const productRouter = require("./routes/product.js");
 
 const sessionOptions = {
     store,
@@ -92,16 +93,17 @@ app.get("/", (req,res) => {
 // app.post("/add-to-cart", async (req, res) => {
 //     res.send("post req working")
 // });
-
-app.use("/", userRouter);
-app.use("/", productRouter);
-app.use("/", cartRouter);
-
 app.use(isLoggedIn);
 app.use((req, res, next) => {
     res.locals.user = req.user;
     next();
 });
+
+app.use("/", userRouter);
+app.use("/", productRouter);
+app.use("/", cartRouter);
+
+
 
 
 // app.options("127.0.0.1", (req, res) => {
