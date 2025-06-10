@@ -8,11 +8,11 @@ router.get("/view",isLoggedIn, async (req,res) => {
         const products = await Product.find();
         console.log("fetching products", products);
         const user = req.user;
-        if (isLoggedIn) {
-           res.render("view.ejs", { products, user });
-        } else {
-            res.render("view.ejs", { products })
-        }
+        // if (isLoggedIn) {
+        res.render("view.ejs", { products, user });
+        // } else {
+        //     res.render("view.ejs", { products })
+        // }
 
     } catch (err) {
         console.log(err, "Error fetching the products");
