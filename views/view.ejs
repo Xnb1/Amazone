@@ -12,16 +12,16 @@
   </div>
   
   <div class="products">
-    <% Prodct.forEach(products => {  %>
+    <% products.forEach(product => {  %>
       <div class="product-item">
         
-          <h2><%= products.title %> </h2>
-          <img src= "<%= products.image %>" >
-          <h4>Price: <%= products.price %> AED </h4>
-          <p>Rating: <%= products.rating %> </p>
-          <!-- <p>Quantity: < products.quantity%>  </p> -->
+          <h2><%= product.title %> </h2>
+          <img src= "<%= product.image %>" >
+          <h4>Price: <%= product.price %> AED </h4>
+          <p>Rating: <%= product.rating %> </p>
+          <!-- <p>Quantity: < product.quantity%>  </p> -->
           <form action="/cart" method="post">                     
-            <input type="hidden" name="product" value="<%= products._id %>">
+            <input type="hidden" name="product" value="<%= product._id %>">
             <input type="hidden" name="quantity" value="1"> 
             <!-- <input type="hidden" name="user" value="< user._id %>"></input> -->
             <button class="cart" type="submit">Add to Cart</button>

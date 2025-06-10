@@ -3,7 +3,7 @@ const router = express.Router();
 const Cart = require("../models/cart.js");
 const Product = require("../models/product.js");
 const isLoggedIn = require("../middleware.js");
-const Prodct = require("./product.js");
+const products = require("./product.js");
 const user = require("./user.js");
 
 //Get cart items
