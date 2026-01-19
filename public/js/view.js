@@ -1,6 +1,7 @@
 let slideBar = document.getElementById("slidebar");
 let btn = document.getElementById("btn-close");
-let allBtn = document.getElementById("home"); 
+let allBtn = document.getElementById("home");
+let BASE_URL = "https://amazone-54bq.onrender.com";
 
 function ClickButton() {
     slideBar.style.left = "-390px";
@@ -28,7 +29,7 @@ let btn3 = document.getElementsByClassName("login")[0]; //0th element of nodelis
 
 btn3.addEventListener("click", () => {
    console.log(btn3);
-   url = "https://amznb.onrender.com/signin";
+   url = `${BASE_URL}/signin`;
    // console.log("button was clicked");
    Signin(url);
 });
@@ -52,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
          hom.addEventListener("click", async () => {
             console.log("div clicked");
             try {
-               const url = "https://amznb.onrender.com/";
+               const url = `${BASE_URL}`;
                const res = await axios.get(url);
                if (res) 
                window.location.href = url; 
